@@ -35,7 +35,7 @@ def setup_hash_table(products):
     end = time.time()
 
     insert_time = (end - start) * 1000
-    print(f"  ✓ Hash Table insertion time: {insert_time:.4f} ms")
+    print(f"Hash Table insertion time: {insert_time:.4f} ms")
     return ht
 
 
@@ -50,7 +50,7 @@ def setup_array(products):
     end = time.time()
 
     insert_time = (end - start) * 1000
-    print(f"  ✓ Array insertion time: {insert_time:.4f} ms")
+    print(f"Array insertion time: {insert_time:.4f} ms")
     return array
 
 
@@ -109,7 +109,7 @@ def main():
     print("\n[Step 1] Creating large dataset...")
     NUM_PRODUCTS = 10000000  # Change this number to test with different sizes
     products = create_large_dataset(NUM_PRODUCTS)
-    print(f"  ✓ Created {len(products)} products\n")
+    print(f"Created {len(products)} products\n")
 
     # Setup Hash Table
     print("[Step 2] Setting up Hash Table...")
@@ -134,7 +134,7 @@ def main():
             product_id = f"P{i:05d}"
             search_queries.append((cat, product_id))
 
-    print(f"  ✓ Created {len(search_queries)} search queries")
+    print(f"Created {len(search_queries)} search queries")
 
     # Benchmark Hash Table
     print("\n" + "=" * 70)
