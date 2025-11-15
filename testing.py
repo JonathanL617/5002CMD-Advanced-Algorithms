@@ -173,17 +173,6 @@ def main():
     print(f"Hash Table is FASTER by:   {arr_total / ht_total if ht_total > 0 else 0:.2f}x")
     print("=" * 70)
 
-    # Visual Comparison
-    print("\n" + "=" * 70)
-    print("VISUAL COMPARISON")
-    print("=" * 70)
-
-    ht_bar = "█" * int(ht_avg * 10)
-    arr_bar = "█" * int(arr_avg * 10)
-
-    print(f"Hash Table: {ht_bar} {ht_avg:.4f} ms")
-    print(f"Array:      {arr_bar} {arr_avg:.4f} ms")
-
 
 if __name__ == '__main__':
     main()

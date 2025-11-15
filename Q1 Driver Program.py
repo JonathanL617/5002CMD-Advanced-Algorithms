@@ -48,7 +48,7 @@ def add_product(hash_table):
 
 def search_product(hash_table):
     display_category(hash_table)
-    category = input("Enter product category to search: ")
+    category = input("Enter product category to search: ").lower()
 
     #search items by category
     products = hash_table.search(category)
@@ -58,6 +58,7 @@ def search_product(hash_table):
         print("=" * 30)
         for product in products:
             product.print()
+            print("\n")
         print("=" * 30)
 
     else:
@@ -106,32 +107,34 @@ def delete_product(hash_table):
     for i, product in enumerate(products, 1):
         print(f"{i}) {product.get_product_id()} - {product.get_name()}")
 
+    product_id = input("\n Enter Product ID to delete: ")
+
+    if(hash_table.delete(category, product_id)):
+        print(f'Product {product_id} deleted successfully!')
+    else:
+        print(f'Product {product_id} not found')
+
 
 def main():
     #initialize hash table with
     hashTable = HashTable(10)
 
     #insert some existing data
-    # Clothing products
     hashTable.insert("clothing", BabyProduct("P001", "Baby Onesie", "Clothing", 15.99, 50))
     hashTable.insert("clothing", BabyProduct("P002", "Baby Socks Set", "Clothing", 8.99, 100))
     hashTable.insert("clothing", BabyProduct("P003", "Baby Hat", "Clothing", 12.50, 75))
 
-    # Toys products
     hashTable.insert("toys", BabyProduct("P004", "Soft Plush Bear", "Toys", 25.99, 30))
     hashTable.insert("toys", BabyProduct("P005", "Rattle Set", "Toys", 10.99, 60))
     hashTable.insert("toys", BabyProduct("P006", "Building Blocks", "Toys", 35.00, 40))
 
-    # Feeding products
     hashTable.insert("feeding", BabyProduct("P007", "Baby Bottle", "Feeding", 12.99, 80))
     hashTable.insert("feeding", BabyProduct("P008", "Sippy Cup", "Feeding", 9.99, 65))
     hashTable.insert("feeding", BabyProduct("P009", "Baby Spoon Set", "Feeding", 7.50, 90))
 
-    # Diapering products
     hashTable.insert("diapering", BabyProduct("P010", "Diapers Pack", "Diapering", 29.99, 120))
     hashTable.insert("diapering", BabyProduct("P011", "Baby Wipes", "Diapering", 15.99, 150))
     hashTable.insert("diapering", BabyProduct("P012", "Changing Mat", "Diapering", 22.50, 45))
-
 
     while True:
         menu()

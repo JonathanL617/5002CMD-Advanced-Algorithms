@@ -18,6 +18,7 @@ class HashTable:
         return hash(value) % self.__capacity
 
     def insert(self, key, product):
+        key = key.lower()
         index = self.hash(key)
 
         #create the start of the linked list if no collision
